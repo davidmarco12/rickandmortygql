@@ -3,6 +3,7 @@ import React from "react";
 import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import Actions from "../../../redux/actions";
+import { VscStarEmpty, VscStarFull } from 'react-icons/vsc'
 
 export const CharacterCard = (props) => {
     const history = useHistory();
@@ -50,9 +51,9 @@ export const CharacterCard = (props) => {
                         </article>
                     </Card.Text>
                     {
-                        !favorites.includes(character.id) ? <Button variant="primary" onClick={() => addToFavorite(character.id)}>Add to favorites</Button> : <Button variant="primary" onClick={() => addToFavorite(character.id)}>Delete from favorites</Button>
+                        !favorites.includes(character.id) ? <VscStarEmpty size={32}  onClick={() => addToFavorite(character.id)}/>
+                            : <VscStarFull size={32} color="yellow" onClick={() => addToFavorite(character.id)}/>
                     }
-                    {/*<Button variant="primary" onClick={() => addToFavorite(character.id)}>{!favorites.includes(character.id) ? "Add to favorites" : "Delete from favorites"}</Button>*/}
                 </Card.Body>
             </Card>
         </Col>
